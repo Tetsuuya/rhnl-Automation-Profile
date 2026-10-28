@@ -1,0 +1,8 @@
+# Firebase App Hosting settings
+# Scales to zero when idle and never above one instance, keeping a portfolio within the free usage tier.
+runConfig:
+  minInstances: 0
+  maxInstances: 1
+  concurrency: 80
+  cpu: 1
+  memoryMiB: 512
