@@ -1,6 +1,6 @@
 # Rhenel's Automation Portfolio
 
-Next.js site. Run `npm run dev` and open http://localhost:3000.
+Next.js site. Full list of my automation skills and tools: [SKILLS.md](SKILLS.md). Run `npm run dev` and open http://localhost:3000.
 
 ## Editing content
 
