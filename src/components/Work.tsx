@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { work, type WorkItem } from "@/data/work";
 import Media from "./Media";
+import CopyLink from "./CopyLink";
 
 export default function Work() {
   const [open, setOpen] = useState<WorkItem | null>(null);
@@ -37,11 +38,6 @@ export default function Work() {
             <div className="p-4 sm:p-5">
               <h3 className="text-lg font-bold">{item.title}</h3>
               <p className="mt-1 text-sm text-ink-soft">{item.summary}</p>
-              <p className="mt-4 flex flex-wrap items-center gap-2 font-mono text-xs">
-                <span className="text-ink-soft line-through decoration-muted">{item.before}</span>
-                <span className="text-ink-soft">→</span>
-                <span className="rounded bg-ok/10 px-1.5 py-0.5 font-bold text-ok">{item.after}</span>
-              </p>
             </div>
           </button>
         ))}
@@ -60,23 +56,22 @@ export default function Work() {
             className="max-h-[92vh] w-full max-w-4xl overflow-y-auto rounded-t-2xl border-2 border-b-0 border-ink bg-surface sm:rounded-xl sm:border-b-2"
           >
             <div className="flex items-center justify-between border-b-2 border-ink px-4 py-2 font-mono text-xs">
-              <span>{open.slug}.json</span>
-              <button onClick={() => setOpen(null)} className="hover:text-accent" aria-label="Close">
-                close ✕
-              </button>
+              <span className="truncate">{open.slug}.json</span>
+              <span className="flex shrink-0 gap-4">
+                <a href={`/work/${open.slug}`} target="_blank" rel="noreferrer" className="hover:text-accent">
+                  new tab ↗
+                </a>
+                <CopyLink path={`/work/${open.slug}`} className="hover:text-accent" />
+                <button onClick={() => setOpen(null)} className="hover:text-accent" aria-label="Close">
+                  ✕
+                </button>
+              </span>
             </div>
             <div className="aspect-video bg-canvas">
               <Media item={open} full />
             </div>
             <div className="p-5 sm:p-6">
-              <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
-                <h3 className="text-xl font-extrabold tracking-tight sm:text-2xl">{open.title}</h3>
-                <p className="font-mono text-sm">
-                  <span className="text-ink-soft line-through decoration-muted">{open.before}</span>
-                  <span className="text-ink-soft"> → </span>
-                  <span className="font-bold text-ok">{open.after}</span>
-                </p>
-              </div>
+              <h3 className="text-xl font-extrabold tracking-tight sm:text-2xl">{open.title}</h3>
 
               <p className="mt-5 font-mono text-xs uppercase tracking-wide text-accent">problem</p>
               <p className="mt-1">{open.problem}</p>
@@ -98,7 +93,7 @@ export default function Work() {
               <p className="mt-5 font-mono text-xs uppercase tracking-wide text-accent">result</p>
               <p className="mt-1 font-semibold">{open.result}</p>
               <p className="mt-4 font-mono text-xs text-ink-soft">
-                {open.nodes.join(" → ")} · before = typical manual time, after = measured run time
+                {open.nodes.join(" → ")}
               </p>
             </div>
           </div>

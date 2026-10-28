@@ -17,9 +17,6 @@ export type WorkItem = {
   summary: string;
   problem: string;
   result: string;
-  // "before" is a typical by-hand estimate; "after" is the measured n8n run time
-  before: string;
-  after: string;
   nodes: string[];
   steps?: string[];
   media?: Media;
@@ -32,8 +29,6 @@ export const work: WorkItem[] = [
     summary: "Sorts the inbox, drafts replies, pings Telegram on urgent mail.",
     problem: "Sorting the inbox and writing replies eats hours every day.",
     result: "Every email is sorted with a reply drafted, and urgent ones reach your phone instantly.",
-    before: "~5 min per email",
-    after: "10s",
     nodes: ["Outlook", "Code", "Groq", "Switch", "Telegram"],
     steps: [
       "New email arrives in Outlook",
@@ -49,8 +44,6 @@ export const work: WorkItem[] = [
     summary: "Scrapes a lead's company site, scores fit 0–100, routes by tier.",
     problem: "Researching each lead and writing a personal email takes so long that hot leads go cold.",
     result: "Every lead is researched, scored and emailed in seconds. VIP leads ping Telegram.",
-    before: "~20 min per lead",
-    after: "16s",
     nodes: ["Webhook", "HTTP", "AI Agent", "IF", "Telegram"],
     steps: [
       "Lead comes in through a webhook",
@@ -66,8 +59,6 @@ export const work: WorkItem[] = [
     summary: "Reads invoices with AI, double-checks the math in code, blocks duplicates.",
     problem: "Typing invoices into the books is slow, and AI alone can't be trusted with money.",
     result: "Math is re-checked in code, duplicates are blocked, and nothing is paid without approval.",
-    before: "~5 min per invoice",
-    after: "3s",
     nodes: ["Webhook", "Groq", "Code", "IF", "Telegram"],
     steps: [
       "Invoice text comes in through a webhook",
@@ -83,8 +74,6 @@ export const work: WorkItem[] = [
     summary: "Chat agent that checks real order data and escalates angry customers.",
     problem: "Customers wait hours for answers to the same few questions.",
     result: "Instant answers using real order data. Upset customers go straight to a human.",
-    before: "hours to first reply",
-    after: "2s",
     nodes: ["Chat", "AI Agent", "Memory", "Tools", "Telegram"],
     steps: [
       "Customer sends a message in chat",
@@ -100,8 +89,6 @@ export const work: WorkItem[] = [
     summary: "Turns one blog post into a LinkedIn post, X thread and blog draft.",
     problem: "Turning one article into posts for every platform takes a whole afternoon.",
     result: "LinkedIn, X and blog drafts are ready for review every morning.",
-    before: "~1.5 hrs per article",
-    after: "13s",
     nodes: ["Schedule", "RSS", "Groq", "Merge", "Telegram"],
     steps: [
       "Runs daily and grabs the newest article from an RSS feed",
@@ -117,8 +104,6 @@ export const work: WorkItem[] = [
     summary: "Reads the crashing code on GitHub, finds the bug, proposes a patch.",
     problem: "When production breaks, users are stuck while someone digs for the bug.",
     result: "Root cause and a ready-to-review patch arrive in Telegram within seconds.",
-    before: "~45 min to diagnose",
-    after: "6s",
     nodes: ["Webhook", "GitHub API", "AI Agent", "Code", "Telegram"],
     steps: [
       "Error report comes in from Sentry",

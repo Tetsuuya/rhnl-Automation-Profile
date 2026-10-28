@@ -14,7 +14,7 @@ export default function Media({ item, full = false }: { item: WorkItem; full?: b
 
   if (m.type === "video") {
     return full ? (
-      <video src={m.src} poster={m.poster} controls autoPlay className="h-full w-full bg-black object-contain" />
+      <video src={m.src} poster={m.poster} controls autoPlay muted playsInline className="h-full w-full bg-black object-contain" />
     ) : (
       <video src={m.src} poster={m.poster} muted loop playsInline autoPlay className="h-full w-full object-cover" />
     );

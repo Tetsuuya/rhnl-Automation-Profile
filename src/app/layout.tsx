@@ -12,7 +12,13 @@ const mono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
+// Absolute base for link-preview images; Vercel sets the production domain automatically.
+const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : "http://localhost:3000";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Rhenel.s | n8n Automation",
   description: "n8n workflow automation by Rhenel Jhon Sajol.",
 };
