@@ -1,0 +1,131 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[left=0.65in,right=0.65in,top=0.5in,bottom=0.5in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[default]{opensans}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{HTML}{000000}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{7pt}{3pt}
+
+\setlist[itemize]{leftmargin=1.2em, itemsep=0pt, topsep=1pt, parsep=0pt}
+
+\newcommand{\role}[4]{%
+  \textbf{#1} \hfill #2\\
+  #3 \hfill #4\par\vspace{2pt}%
+}
+
+\newcommand{\project}[3]{%
+  \vspace{4pt}%
+  {\bfseries #1} \hfill {\small #3}\par
+  \vspace{1pt}%
+  \hangindent=1.2em \hangafter=1 \hspace{0.6em}\textbullet\hspace{0.4em}#2\par
+}
+
+\begin{document}
+
+% ---------- HEADER ----------
+\begin{minipage}[c]{0.16\textwidth}
+  \IfFileExists{photo.png}{%
+    \includegraphics[width=\linewidth]{photo.png}%
+  }{%
+    \fbox{\parbox[c][2.6cm][c]{0.9\linewidth}{\centering Add photo.png}}%
+  }
+\end{minipage}%
+\hfill
+\begin{minipage}[c]{0.80\textwidth}
+  {\Huge\bfseries\color{accent} Rhenel Jhon R. Sajol}\\[4pt]
+  {\large AI Automation Engineer (n8n, LLM Agents, Integrations)}\\[6pt]
+  Cagayan de Oro City, Philippines\\
+  \href{mailto:sajol.rhenel123@gmail.com}{sajol.rhenel123@gmail.com} \quad|\quad 09536145105\\
+  \href{https://rhnl-s.vercel.app}{rhnl-s.vercel.app} \quad|\quad
+  \href{https://github.com/Tetsuuya}{github.com/Tetsuuya} \quad|\quad
+  \href{https://www.linkedin.com/in/rhenel-jhon-sajol-360275324/}{linkedin.com/in/rhenel-jhon-sajol}
+\end{minipage}
+
+\vspace{4pt}
+
+% ---------- SUMMARY ----------
+\section{Profile}
+Automation builder and full-stack developer. I build n8n workflows and AI agents that run on their own: they sort emails, research leads, read invoices, answer customers and alert the team. When the built-in nodes are not enough, I write the custom code, API calls and database logic. Every workflow has retries, input checks and error alerts, and a recording of it running on my portfolio. Comfortable in remote, async teams and U.S. or U.K. hours.
+
+% ---------- PROJECTS ----------
+\section{Automation Projects}
+{\small Each workflow has a screen recording at \href{https://rhnl-s.vercel.app/\#work}{rhnl-s.vercel.app/\#work}.}
+
+\project{Outlook AI Email Triage}{Sorts new Outlook emails, drafts replies, and sends Telegram alerts for urgent ones. Outlook OAuth2 (Azure), Groq, Switch routing, SMTP.}{\href{https://rhnl-s.vercel.app/work/outlook-copilot}{demo}}
+
+\project{Lead Research Agent}{Webhook in, scrapes a lead's company site, scores fit from 0 to 100 with an AI agent and tools, and routes by tier.}{\href{https://rhnl-s.vercel.app/work/lead-agent}{demo}}
+
+\project{Invoice Extractor}{AI returns strict JSON, then code re-checks line items and totals and blocks duplicates, with an approval step.}{\href{https://rhnl-s.vercel.app/work/invoice-extractor}{demo}}
+
+\project{Customer Support Agent}{Chat agent with memory that uses tools to look up real order data, answers customers, and escalates upset ones to a human.}{\href{https://rhnl-s.vercel.app/work/support-agent}{demo}}
+
+\project{Content Repurposing}{RSS in, parallel AI writers produce LinkedIn, X and blog drafts, merged into a Telegram review card for approval.}{\href{https://rhnl-s.vercel.app/work/content-engine}{demo}}
+
+\project{DevOps Incident Agent}{Error webhook triggers an agent that reads the crashing file from GitHub, finds the root cause, and proposes a patch.}{\href{https://rhnl-s.vercel.app/work/devops-agent}{demo}}
+
+\vspace{3pt}
+\textbf{Reliability on all six:} 3x auto-retry on every API, AI and messaging step, and a shared error workflow that sends a Telegram alert with the workflow, failed node and error.
+
+% ---------- EXPERIENCE ----------
+\section{Experience}
+
+\role{Backend Developer (Fixed-Term Freelance Contract)}{July 2026 to September 2026}{SaaS platform, remote}{}
+\begin{itemize}
+  \item Delivered 4 backend services to production, including AI document generation (Gemini, Groq) and AI voice-cloned video dubbing, plus screen recording and video compression.
+  \item Built with Node.js and FFmpeg, stored on Cloudflare R2, deployed on Docker with CI/CD.
+\end{itemize}
+
+\vspace{2pt}
+\role{Software Developer Intern}{June 2026 to August 2026}{Production school management system (PHP / CodeIgniter / MySQL)}{240 hours}
+\begin{itemize}
+  \item Built backend features and fixed production issues on a live system.
+  \item Optimized database queries and improved user workflows across the app.
+\end{itemize}
+
+\vspace{2pt}
+\role{Full-Stack Developer (Freelance)}{January 2024 to Present}{Remote}{}
+\begin{itemize}
+  \item Delivered web apps and booking systems with React, Next.js, and Supabase.
+  \item Built API servers with Stripe payments, webhook pipelines, and Cloudflare R2 storage.
+  \item Designed database schemas, secured API endpoints, and wrote RLS policies.
+\end{itemize}
+
+% ---------- SKILLS ----------
+\section{Technical Skills}
+{\renewcommand{\arraystretch}{1.25}\begin{tabular}{@{}p{0.17\linewidth}@{\hspace{6pt}}p{0.80\linewidth}@{}}
+  \textbf{Automation} & n8n (self-hosted), Python and JavaScript scripts and Code nodes, webhooks, schedules, RSS, IF/Switch/Merge routing, error workflows, retries \\
+  \textbf{AI / LLMs} & AI agents with tools and memory, LangChain, strict-JSON prompts with code validation; Groq, GPT-OSS, Llama, Gemini \\
+  \textbf{Integrations} & REST APIs, OAuth2, Microsoft Graph (Outlook), Telegram Bot API, Gmail/SMTP, GitHub API, Stripe, web scraping \\
+  \textbf{Data} & Google Sheets, PostgreSQL, MySQL, Supabase, Firebase, SQLite \\
+  \textbf{Languages} & Python, JavaScript, TypeScript, PHP, Java, C++, HTML, CSS \\
+  \textbf{Frameworks} & React, Next.js, Node.js, Express, Django, FastAPI, Flask, Laravel, CodeIgniter, Tailwind \\
+  \textbf{DevOps} & Docker, Linux VPS, Cloudflare (R2, Tunnels), Render, Vercel, GitHub, CI/CD \\
+\end{tabular}}
+
+% ---------- EDUCATION ----------
+\section{Education and Certifications}
+
+\role{BS Computer Science}{Dean's Lister}{University of Science and Technology of Southern Philippines, Cagayan de Oro}{}
+\begin{itemize}
+  \item 2nd Honor (1st Sem 2023-24), 3rd Honor (2nd Sem 2023-24), 2nd Honor (1st Sem 2024-25)
+\end{itemize}
+
+\vspace{2pt}
+\role{TOPCIT (Test of Practical Competency in IT)}{Level 1 (2024), Level 2 (2026)}{Certification}{}
+
+\vspace{2pt}
+\role{Senior High School, STEM}{2021 to 2023}{Liceo de Cagayan University}{}
+
+\end{document}
