@@ -41,6 +41,7 @@ export const toolGroups = [
       { name: "GitHub", icon: "github" },
       { name: "Postman", icon: "postman" },
       { name: "JavaScript", icon: "javascript" },
+      { name: "Python", icon: "python" },
       { name: "PostgreSQL", icon: "postgresql" },
       { name: "Supabase", icon: "supabase" },
       { name: "React", icon: "react" },
