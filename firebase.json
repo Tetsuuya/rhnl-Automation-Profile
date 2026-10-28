@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "public": "out",
+    "cleanUrls": true,
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "headers": [
+      {
+        "source": "/workflows/**",
+        "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }]
+      },
+      {
+        "source": "/_next/static/**",
+        "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      }
+    ]
+  }
+}
