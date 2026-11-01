@@ -1,7 +1,7 @@
 export const profile = {
   name: "Rhenel Jhon Sajol",
   email: "sajol.rhenel123@gmail.com",
-  photo: "/profile.jpg",
+  photo: "/profile.jpeg",
   // Paste your Calendly (or similar) link here to show a "Book a call" button
   booking: "",
 };
