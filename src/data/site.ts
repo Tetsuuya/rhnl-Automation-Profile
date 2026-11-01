@@ -1,6 +1,6 @@
 export const profile = {
   name: "Rhenel Jhon Sajol",
-  email: "sajol.rhenel123@gmail.com",
+  email: "rheneljhon@gmail.com",
   photo: "/profile.jpeg",
   // Paste your Calendly (or similar) link here to show a "Book a call" button
   booking: "",
@@ -20,6 +20,7 @@ export const toolGroups = [
       { name: "Groq", icon: "groq" },
       { name: "GPT-OSS", icon: "openai" },
       { name: "Llama", icon: "meta" },
+      { name: "Claude", icon: "claude-color" },
       { name: "Gemini", icon: "gemini-color" },
       { name: "LangChain", icon: "langchain" },
     ],

@@ -87,4 +87,4 @@ All six share the same error-alert workflow and retry setup described under **Re
 
 ## Contact
 
-📧 sajol.rhenel123@gmail.com · 🌐 [rhnl-s.vercel.app](https://rhnl-s.vercel.app)
+📧 rheneljhon@gmail.com · 🌐 [rhnl-s.vercel.app](https://rhnl-s.vercel.app)
